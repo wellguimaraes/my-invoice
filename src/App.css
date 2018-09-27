@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body, div, p, span, strong {
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 1.5
+}
+
+h1, h2, h3, h4 {
+    margin: 30px 0 10px 0;
+}
+
+.App {
+    display: flex;
+    position: fixed;
+    padding: 1.5cm 2cm 2cm 2cm;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+}
+
+.logo {
+    height: 70px;
+}
+
+.header,.footer {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.header .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    flex-grow: 1;
+    flex-shrink :1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.content table {
+    width: 100%;
+    border: 0;
+}
+
+.content thead td {
+    opacity: .5;
+    font-weight: bold;
+    border-bottom: 2px solid #aaa
+}
+
+.content tfoot td {
+    border-top: 2px solid #ccc;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+
+.content tfoot td:first-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
+h3 {
+    color: #0d80bc;
+}
+
+@media print {
+    @page { margin: 0; }
+
+}
+
