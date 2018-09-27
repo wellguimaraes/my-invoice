@@ -34,7 +34,7 @@ export const paymentInfo = [
 export const items = [
   {
     title    : `Software Development (${DateRange({ startDate, endDate })})`,
-    unitPrice: 60,
-    quantity : 80
+    unitPrice: 99,
+    quantity : 40 * invoiceInterval
   }
 ]
