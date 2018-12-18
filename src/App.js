@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
-import { myCompanyName, invoiceNumber, companyLogo, invoicedCompanyName, myCompanyExtraInfo, invoicedCompanyExtraInfo, items, paymentInfo } from './config'
+import {
+  myCompanyName,
+  invoiceNumber,
+  companyLogo,
+  invoicedCompanyName,
+  myCompanyExtraInfo,
+  invoicedCompanyExtraInfo,
+  items,
+  paymentInfo
+} from './config'
 import './App.css'
+import Helmet from 'react-helmet'
 
 function money(v) {
   return v.toLocaleString('en-US', {
-    currency       : 'USD',
+    currency: 'USD',
     currencyDisplay: 'symbol',
-    style          : 'currency'
+    style: 'currency'
   })
 }
 
@@ -14,6 +24,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Helmet>
+          <title>{`Invoice #${invoiceNumber}`}</title>
+        </Helmet>
         <div className="header">
           <img src={companyLogo} className="logo"/>
           <div className="row">
