@@ -1,40 +1,33 @@
 import DateRange from './DateRange'
-import { addDays, differenceInWeeks, isFriday } from 'date-fns'
 import _logo from './logo.svg'
 import React from 'react'
+import { getEndDate, getInvoiceNumber, getStartDate,getEnvArray } from './utils'
+import format from 'string-template'
 
-export const companyLogo      = _logo
-export const invoiceInterval  = 2 // weeks
-export const firstInvoiceDate = '2018-01-12'
-export const invoiceDate      = new Date()
-export const endDate          = isFriday(invoiceDate) ? invoiceDate : addDays(invoiceDate, -invoiceDate.getDay() - 2)
-export const startDate        = addDays(endDate, -11)
-export const invoiceNumber    = differenceInWeeks(endDate, firstInvoiceDate) / invoiceInterval + 1
+const itemTitles     = getEnvArray('PAYMENT_ITEM_TITLE')
+const itemUnitPrices = getEnvArray('PAYMENT_ITEM_UNIT_PRICE')
+const itemQuantities = getEnvArray('PAYMENT_ITEM_QUANTITY')
 
-export const invoicedCompanyName      = 'Invoice Company, Inc.'
-export const invoicedCompanyExtraInfo = ['company@example.com']
+export const companyLogo              = _logo
+export const invoicedCompanyName      = process.env.REACT_APP_INVOICED_COMPANY_NAME // 'Experiential, Inc.'
+export const myCompanyName            = process.env.REACT_APP_MY_COMPANY_NAME
+export const firstInvoiceDate         = process.env.REACT_APP_FIRST_INVOICE_DATE
+export const invoiceDate              = process.env.REACT_APP_INVOICE_DATE || new Date()
+export const invoiceWeeksInterval     = parseInt(process.env.REACT_APP_INVOICE_WEEKS_INTERVAL, 10)
+export const endDate                  = getEndDate({ firstInvoiceDate, invoiceDate, invoiceWeeksInterval })
+export const startDate                = getStartDate({ invoiceWeeksInterval, endDate })
+export const invoiceNumber            = getInvoiceNumber({ endDate, firstInvoiceDate, invoiceWeeksInterval })
+export const invoicedCompanyExtraInfo = getEnvArray('INVOICE_COMPANY_EXTRA_INFO')
+export const myCompanyExtraInfo       = getEnvArray('MY_COMPANY_EXTRA_INFO')
+export const paymentInfo              = getEnvArray('PAYMENT_INFO').map(it => {
+  const [label, value] = it.split(':')
+  return { label, value }
+})
 
-export const myCompanyName      = 'WellGuimaraes Tecnologia'
-export const myCompanyExtraInfo = [
-  'Lorem Ipsum Dolor',
-  'Some Address Here - Florianópolis, SC, Brazil',
-  'hello@well.software',
-  '+55 48 999999999',
-]
-
-export const paymentInfo = [
-  { label: 'Transfer type', value: 'Domestic Wire' },
-  { label: 'Bank name', value: 'Wells Fargo' },
-  { label: 'Account owner', value: 'Your Name Here' },
-  { label: 'Routing number', value: '000000000' },
-  { label: 'Account number', value: '000000000' },
-  { label: 'Account type', value: 'Checking' },
-]
-
-export const items = [
-  {
-    title    : `Software Development (${DateRange({ startDate, endDate })})`,
-    unitPrice: 99,
-    quantity : 40 * invoiceInterval
+export const items = itemTitles.map((it, i) => {
+  return {
+    title    : format(it, { invoiceRange: DateRange({ startDate, endDate }) }),
+    unitPrice: itemUnitPrices[i],
+    quantity : itemQuantities[i]
   }
-]
+})

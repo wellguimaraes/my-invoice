@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Helmet from 'react-helmet'
+import './App.css'
 import {
   myCompanyName,
   invoiceNumber,
@@ -9,8 +11,6 @@ import {
   items,
   paymentInfo
 } from './config'
-import './App.css'
-import Helmet from 'react-helmet'
 
 function money(v) {
   return v.toLocaleString('en-US', {
