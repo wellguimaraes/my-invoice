@@ -17,7 +17,7 @@ export const invoiceWeeksInterval     = parseInt(process.env.REACT_APP_INVOICE_W
 export const endDate                  = getEndDate({ firstInvoiceDate, invoiceDate, invoiceWeeksInterval })
 export const startDate                = getStartDate({ invoiceWeeksInterval, endDate })
 export const invoiceNumber            = getInvoiceNumber({ endDate, firstInvoiceDate, invoiceWeeksInterval })
-export const invoicedCompanyExtraInfo = getEnvArray('INVOICE_COMPANY_EXTRA_INFO')
+export const invoicedCompanyExtraInfo = getEnvArray('INVOICED_COMPANY_EXTRA_INFO')
 export const myCompanyExtraInfo       = getEnvArray('MY_COMPANY_EXTRA_INFO')
 export const paymentInfo              = getEnvArray('PAYMENT_INFO').map(it => {
   const [label, value] = it.split(':')
