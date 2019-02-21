@@ -3,7 +3,7 @@ import _logo from './logo.svg'
 import React from 'react'
 import { getEndDate, getInvoiceNumber, getStartDate } from './utils'
 import format from 'string-template'
-import config from '../config'
+import config from './config'
 
 export const companyLogo = _logo
 export const invoicedCompanyName = config.invoicedCompanyName
@@ -20,14 +20,15 @@ export const startDate = getStartDate({ invoiceWeeksInterval, endDate })
 export const invoiceNumber = getInvoiceNumber({
   endDate,
   firstInvoiceDate,
-  invoiceWeeksInterval
+  invoiceWeeksInterval,
 })
 export const invoicedCompanyExtraInfo = config.invoicedCompanyExtraInfo
 export const myCompanyExtraInfo = config.myCompanyExtraInfo
-export const paymentInfo = config.paymentInfo.map(it => {
-  const [label, value] = it.split(':')
-  return { label, value }
-})
+export const paymentInfo = Object
+  .entries(config.paymentInfo)
+  .map(([label, value]) => {
+    return { label, value }
+  })
 
 export const items = config.paymentItems.map((it, i) => {
   return {

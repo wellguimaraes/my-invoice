@@ -24,4 +24,4 @@ yarn-error.log*
 
 .env
 start.bat
-config.json
+src/config.json

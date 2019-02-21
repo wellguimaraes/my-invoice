@@ -10,7 +10,7 @@ import {
   invoicedCompanyExtraInfo,
   items,
   paymentInfo
-} from './config'
+} from './invoiceData'
 
 function money(v) {
   return v.toLocaleString('en-US', {

@@ -12,7 +12,7 @@
     "string-template": "^1.0.0"
   },
   "scripts": {
-    "setup": "cp config.template.json config.json",
+    "setup": "cp config.template.json src/config.json",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
