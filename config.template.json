@@ -1,0 +1,56 @@
+{
+  "firstInvoiceDate": "2018-01-12",
+  "invoiceWeeksInterval": 2,
+  "invoiceDate": "",
+  "invoicedCompanyName": "Lorem Ipsum, Inc.",
+  "invoicedCompanyExtraInfo": [
+    "lorem@ipsum.com",
+    "+19251234567"
+  ],
+  "myCompanyName": "John Doe Technology",
+  "myCompanyExtraInfo": [
+    "John Doe Technology, Inc.",
+    "Rua da Capela, 100 - Florianópolis, SC, Brazil",
+    "hello@well.software",
+    "+55 48 912345678"
+  ],
+  "paymentInfo": {
+    "Transfer type": "SWIFT",
+    "Bank name": "THE BANK OF NEW YORK MELLON",
+    "Address": "1 WALL STREET, NEW YORK, NY 10286, USA",
+    "Beneficiary Name": "WESTERN UNION BUSINESS SOLUTIONS",
+    "Account number": "0000000000",
+    "ABA Number": "000000000",
+    "SWIFT Code": "IRVTUS3N",
+    "Payment Reference": "Lorem Ipsum Dolor Sit Amet"
+  },
+  "paymentItems": [
+    {
+      "title": "Software Development {invoiceRange}",
+      "unitPrice": 99,
+      "quantity": 80
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,7 +6,7 @@ Create good looking invoices ready for printing.
 
 **Logo:** `/src/logo.svg`
 
-**Invoice data:** create `.env` file and set variables based on `.env.template`
+**Invoice data:** run `yarn setup` and edit `config.json` setting the values according to your needs
 
 ## Run
 
