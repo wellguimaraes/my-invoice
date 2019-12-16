@@ -17,7 +17,7 @@ export const endDate = getEndDate({
   invoiceWeeksInterval,
 })
 export const startDate = getStartDate({ invoiceWeeksInterval, endDate })
-export const invoiceNumber = getInvoiceNumber({
+export const invoiceNumber = config.invoiceNumber || getInvoiceNumber({
   endDate,
   firstInvoiceDate,
   invoiceWeeksInterval,
